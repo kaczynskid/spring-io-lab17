@@ -7,13 +7,21 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.stereotype.Component;
+
 import static java.util.Optional.ofNullable;
 import static org.apache.commons.lang3.reflect.FieldUtils.writeField;
 
+@Component
 class StubItemRepository implements ItemRepository {
 
     private final AtomicLong seq = new AtomicLong();
     private final Map<Long, Item> db = new HashMap<>();
+
+    @Override
+    public boolean isEmpty() {
+        return db.isEmpty();
+    }
 
     @Override
     public Optional<Item> findOne(long id) {
