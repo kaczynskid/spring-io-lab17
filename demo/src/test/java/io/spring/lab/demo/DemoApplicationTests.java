@@ -10,7 +10,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(properties = {
+		"greet.template=whatever"
+})
 public class DemoApplicationTests {
 
 	@Autowired

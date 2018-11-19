@@ -11,7 +11,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = RANDOM_PORT)
+@SpringBootTest(webEnvironment = RANDOM_PORT, properties = {
+        "greet.template=Hello %s"
+})
 public class GreetingControllerTest {
 
     @Autowired
@@ -22,6 +24,6 @@ public class GreetingControllerTest {
         Greeting greeting = rest.getForObject("/greet/me", Greeting.class);
 
         assertThat(greeting).isNotNull();
-        assertThat(greeting.getMessage()).isEqualTo("Hi mee");
+        assertThat(greeting.getMessage()).isEqualTo("Hello me");
     }
 }
