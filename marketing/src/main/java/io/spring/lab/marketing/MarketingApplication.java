@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 
 import io.spring.lab.marketing.special.Special;
 import io.spring.lab.marketing.special.SpecialRepository;
-import io.spring.lab.math.MathProperties;
 
 @SpringBootApplication
 public class MarketingApplication {
@@ -26,10 +25,5 @@ public class MarketingApplication {
 			specials.save(new Special(null, 3, 4, BigDecimal.valueOf(60)));
 			specials.save(new Special(null, 4, 2, BigDecimal.valueOf(40)));
 		};
-	}
-
-	@Bean
-	MathProperties math() {
-		return new MathProperties();
 	}
 }
