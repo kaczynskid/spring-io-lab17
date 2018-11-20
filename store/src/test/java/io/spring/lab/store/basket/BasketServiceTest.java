@@ -2,18 +2,17 @@ package io.spring.lab.store.basket;
 
 import java.math.BigDecimal;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
+import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import io.spring.lab.store.basket.item.BasketItem;
 import io.spring.lab.store.basket.item.BasketItemService;
-import io.spring.lab.store.item.ItemRepresentation;
-import io.spring.lab.store.item.ItemsClient;
 import io.spring.lab.store.special.SpecialCalculation;
 import io.spring.lab.store.special.SpecialClient;
 
@@ -24,19 +23,19 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = NONE)
+@AutoConfigureStubRunner(stubsMode = StubRunnerProperties.StubsMode.LOCAL, ids = {
+        "io.spring.lab:warehouse:+"
+})
 public class BasketServiceTest {
 
     protected static final long ITEM_ID = 1L;
     protected static final String ITEM_NAME = "A";
-    protected static final BigDecimal ITEM_UNIT_PRICE = BigDecimal.valueOf(40.0);
+    protected static final BigDecimal ITEM_UNIT_PRICE = BigDecimal.valueOf(40);
     protected static final int ITEM_REGULAR_COUNT = 2;
     protected static final BigDecimal ITEM_REGULAR_PRICE = BigDecimal.valueOf(80.0);
     protected static final int ITEM_SPECIAL_COUNT = 5;
     protected static final BigDecimal ITEM_SPECIAL_PRICE = BigDecimal.valueOf(150.0);
     protected static final String SPECIAL_ID = "abc";
-
-    @MockBean
-    ItemsClient items;
 
     @MockBean
     SpecialClient specials;
@@ -46,12 +45,6 @@ public class BasketServiceTest {
 
     @Autowired
     BasketItemService basketItems;
-
-    @Before
-    public void setUp() {
-        when(items.findOne(ITEM_ID))
-                .thenReturn(new ItemRepresentation(ITEM_NAME, ITEM_UNIT_PRICE));
-    }
 
     @Test
     public void shouldUpdateBasketWithRegularPriceItem() {
