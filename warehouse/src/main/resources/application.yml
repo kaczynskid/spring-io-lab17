@@ -21,3 +21,11 @@ management:
       base-path: "/admin"
       exposure:
         include: "*"
+    jmx:
+      domain: "io.spring.lab.warehouse"
+  metrics:
+    export:
+      jmx:
+        enabled: false
+      graphite:
+        enabled: false
