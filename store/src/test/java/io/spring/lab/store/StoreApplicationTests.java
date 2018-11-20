@@ -1,4 +1,4 @@
-package io.spring.lab.marketing;
+package io.spring.lab.store;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,10 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(properties = {
-		"debug=true"
-})
-public class MarketingApplicationTests {
+@SpringBootTest
+public class StoreApplicationTests {
 
 	@Autowired
 	ApplicationContext context;

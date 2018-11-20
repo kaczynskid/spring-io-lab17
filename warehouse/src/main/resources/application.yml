@@ -18,5 +18,6 @@ management:
       show-details: always
   endpoints:
     web:
+      base-path: "/admin"
       exposure:
         include: "*"
