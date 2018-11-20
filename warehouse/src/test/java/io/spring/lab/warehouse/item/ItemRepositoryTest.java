@@ -33,6 +33,6 @@ public class ItemRepositoryTest {
         assertThat(item.getId()).isGreaterThan(0L);
         assertThat(item.getName()).isEqualTo("E");
         assertThat(item.getCount()).isEqualTo(99);
-        assertThat(item.getPrice()).isEqualTo(BigDecimal.valueOf(3330, 2));
+        assertThat(item.getPrice()).isEqualTo(BigDecimal.valueOf(333000, 4));
     }
 }
