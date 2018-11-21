@@ -1,0 +1,23 @@
+server:
+  port: 9010
+
+eureka:
+  instance:
+    hostname: "localhost"
+  client:
+    registerWithEureka: false
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: "http://${eureka.instance.hostname}:${server.port}/eureka"
+
+management:
+  server:
+    port: 19010
+  endpoints:
+    web:
+      base-path: "/admin"
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: "always"
