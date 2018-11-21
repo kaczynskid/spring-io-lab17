@@ -3,26 +3,24 @@ package io.spring.lab.store.basket;
 import java.math.BigDecimal;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
 import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties;
-import org.springframework.test.context.junit4.SpringRunner;
 
+import io.spring.lab.store.SpringTestBase;
 import io.spring.lab.store.basket.item.BasketItem;
 import io.spring.lab.store.basket.item.BasketItemService;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.NONE;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = NONE)
 @AutoConfigureStubRunner(stubsMode = StubRunnerProperties.StubsMode.LOCAL, ids = {
         "io.spring.lab:warehouse:+",
         "io.spring.lab:marketing:+"
 })
-public class BasketServiceTest {
+public class BasketServiceTest extends SpringTestBase {
 
     protected static final long ITEM_ID = 1L;
     protected static final String ITEM_NAME = "A";

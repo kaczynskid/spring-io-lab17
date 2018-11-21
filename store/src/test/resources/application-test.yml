@@ -1,0 +1,18 @@
+management:
+  metrics:
+    export:
+      jmx:
+        enabled: false
+      graphite:
+        enabled: false
+
+spring:
+  cloud:
+    config:
+      enabled: false
+      discovery:
+        enabled: false
+
+eureka:
+  client:
+    enabled: false
