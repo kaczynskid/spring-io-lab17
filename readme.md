@@ -2,5 +2,5 @@ Slajdy: https://docs.google.com/presentation/d/1m329rxt30nDGK5NMrJJCqetVbdJDWJ4M
 
 Podstawy Spring'a: https://www.meetup.com/Warsaw-Spring-Labs/
 
-Podejście DDD: https://www.youtube.com/watch?v=do-xqIbKZ_8&
+Podejście DDD: https://www.youtube.com/watch?v=do-xqIbKZ_8
 
