@@ -4,26 +4,24 @@ import java.math.BigDecimal;
 import java.util.Optional;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.stereotype.Repository;
-import org.springframework.test.context.junit4.SpringRunner;
 
+import io.spring.lab.warehouse.SpringTestBase;
 import io.spring.lab.warehouse.WarehousePersistenceConfig;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.context.annotation.FilterType.ANNOTATION;
 import static org.springframework.context.annotation.FilterType.ASSIGNABLE_TYPE;
 
-@RunWith(SpringRunner.class)
 @DataJpaTest(includeFilters = {
         @Filter(type = ASSIGNABLE_TYPE, classes = WarehousePersistenceConfig.class),
         @Filter(type = ANNOTATION, classes = Repository.class)
 })
-public class ItemRepositoryTest {
+public class ItemRepositoryTest extends SpringTestBase {
 
     @Autowired
     ItemRepository items;
