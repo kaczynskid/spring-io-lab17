@@ -1,0 +1,23 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: "config"
+  cloud:
+    config:
+      server:
+        git:
+          uri: "file:///home/darek/Devel/Spring/spring-io-lab17-config"
+
+management:
+  server:
+    port: 19000
+  endpoints:
+    web:
+      base-path: "/admin"
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: "always"
