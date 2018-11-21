@@ -26,3 +26,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: "http://localhost:9010/eureka"
+  instance:
+    prefer-ip-address: true
+    health-check-url-path: "/admin/health"
+    status-page-url-path: "/admin/info"

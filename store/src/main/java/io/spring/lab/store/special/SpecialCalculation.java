@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class SpecialCalculation {
 
-	private final String specialId;
+	private String specialId;
 
-	private final BigDecimal totalPrice;
+	private BigDecimal totalPrice;
 }
