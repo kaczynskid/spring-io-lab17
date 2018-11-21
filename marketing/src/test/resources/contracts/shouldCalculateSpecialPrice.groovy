@@ -7,18 +7,19 @@ Contract.make {
         name('calculate special price')
         method('POST')
         url('/specials/1/calculate')
+        headers {
+            header('Accept', value(producer('application/json;charset=UTF-8'), consumer(regex('application/json.*'))))
+            header('Content-Type', 'application/json;charset=UTF-8')
+        }
         body([
                 unitPrice: 40.0,
                 unitCount: 5
         ])
-        headers {
-            header('Content-Type', 'application/json;charset=UTF-8')
-        }
     }
     response {
         status 200
         body([
-                specialId: 'abc',
+                specialId: value(producer(regex(alphaNumeric())), consumer('abc')),
                 totalPrice: 150.0
         ])
         headers {

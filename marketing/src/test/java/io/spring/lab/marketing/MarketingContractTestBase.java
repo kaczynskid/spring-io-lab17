@@ -1,6 +1,7 @@
 package io.spring.lab.marketing;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 import org.junit.Before;
 import org.springframework.test.web.servlet.MockMvc;
@@ -22,7 +23,7 @@ public abstract class MarketingContractTestBase {
     private static final BigDecimal UNIT_PRICE = BigDecimal.valueOf(40);
 
     private static final int SPECIAL_UNIT_COUNT = 5;
-    private static final String SPECIAL_ID = "abc";
+    private static final String SPECIAL_ID = UUID.randomUUID().toString().replaceAll("-", "");
     private static final BigDecimal SPECIAL_TOTAL_PRICE = BigDecimal.valueOf(150);
 
     private static final int REGULAR_UNIT_COUNT = 2;
