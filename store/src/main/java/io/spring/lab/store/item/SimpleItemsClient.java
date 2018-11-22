@@ -6,15 +6,16 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import io.spring.lab.cloud.ConditionalOnMissingFeignClient;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import static java.util.Collections.singletonList;
-import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8;
 
 @Slf4j
 @Component
+@ConditionalOnMissingFeignClient
 @AllArgsConstructor
 public class SimpleItemsClient implements ItemsClient {
 
@@ -33,6 +34,7 @@ public class SimpleItemsClient implements ItemsClient {
 
     @Override
     public void updateStock(ItemStockUpdate changes) {
+        log.info("Simple client updates item {} stock by {}", changes.getId(), changes.getCountDiff());
         rest.put(ITEM_STOCK_URI, changes, changes.getId());
     }
 

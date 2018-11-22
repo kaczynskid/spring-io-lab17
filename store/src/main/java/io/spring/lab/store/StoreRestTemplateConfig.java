@@ -8,8 +8,10 @@ import org.springframework.web.client.RestTemplate;
 
 import io.spring.lab.cloud.ConditionalOnEurekaClient;
 import io.spring.lab.cloud.ConditionalOnMissingEurekaClient;
+import io.spring.lab.cloud.ConditionalOnMissingFeignClient;
 
 @Configuration
+@ConditionalOnMissingFeignClient
 public class StoreRestTemplateConfig {
 
     @Configuration

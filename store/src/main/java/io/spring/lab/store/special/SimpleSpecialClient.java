@@ -3,11 +3,13 @@ package io.spring.lab.store.special;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import io.spring.lab.cloud.ConditionalOnMissingFeignClient;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
+@ConditionalOnMissingFeignClient
 @AllArgsConstructor
 public class SimpleSpecialClient implements SpecialClient {
 

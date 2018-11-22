@@ -17,4 +17,8 @@ public class ItemRepresentation {
 
 	private String instanceId;
 
+	public ItemRepresentation(String name, BigDecimal price) {
+		this.name = name;
+		this.price = price;
+	}
 }

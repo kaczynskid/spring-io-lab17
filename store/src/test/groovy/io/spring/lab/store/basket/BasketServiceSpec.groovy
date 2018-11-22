@@ -35,7 +35,7 @@ class BasketServiceSpec extends Specification {
     BasketService baskets = new BasketService(basketsRepository, basketItems, math)
 
     @Unroll
-    def "Should update basket when item updated"() {
+    def "Should update basket with count #countDiff and price #priceDiff"() {
         given:
             when(items.findOne(1L))
                     .thenReturn(new ItemRepresentation('A', 5.0))
