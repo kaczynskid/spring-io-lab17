@@ -26,7 +26,9 @@ public class SimpleItemsClient implements ItemsClient {
 
     @Override
     public ItemRepresentation findOne(long id) {
-        return rest.exchange(ITEM_URI, GET, emptyEntity(), ItemRepresentation.class, id).getBody();
+        ItemRepresentation representation = rest.exchange(ITEM_URI, HttpMethod.GET, emptyEntity(), ItemRepresentation.class, id).getBody();
+        log.info("Simple client got item from instance: {}", representation.getInstanceId());
+        return representation;
     }
 
     @Override
