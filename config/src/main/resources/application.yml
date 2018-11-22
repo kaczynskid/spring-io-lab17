@@ -24,9 +24,13 @@ management:
 
 eureka:
   client:
+    registryFetchIntervalSeconds: 5
     serviceUrl:
       defaultZone: "http://localhost:9010/eureka"
   instance:
+    leaseRenewalIntervalInSeconds: 10
     prefer-ip-address: true
     health-check-url-path: "/admin/health"
     status-page-url-path: "/admin/info"
+    metadata-map:
+      startup: ${random.int}
